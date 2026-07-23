@@ -1,0 +1,100 @@
+[gd_scene format=4 uid="uid://b87v2rnw81ik"]
+
+[ext_resource type="Texture2D" uid="uid://bvvhntvduki1s" path="res://icon.svg" id="1_bw3vb"]
+
+[sub_resource type="GDScript" id="GDScript_u7t3a"]
+script/source = "extends Camera2D
+
+const WALK_SPEED = 20
+
+func _process(delta):
+	if Input.is_action_pressed(\"ui_left\"):
+		position.x += -WALK_SPEED
+	elif Input.is_action_pressed(\"ui_right\"):
+		position.x +=  WALK_SPEED
+	elif Input.is_action_pressed(\"ui_up\"):
+		position.y +=  -WALK_SPEED
+	elif Input.is_action_pressed(\"ui_down\"):
+		position.y +=  WALK_SPEED
+		print('down')
+"
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wyytf"]
+texture = ExtResource("1_bw3vb")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+5:2/0 = 0
+6:2/0 = 0
+7:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+4:3/0 = 0
+5:3/0 = 0
+6:3/0 = 0
+7:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+5:4/0 = 0
+6:4/0 = 0
+7:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+5:5/0 = 0
+6:5/0 = 0
+7:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+5:6/0 = 0
+6:6/0 = 0
+7:6/0 = 0
+0:7/0 = 0
+1:7/0 = 0
+2:7/0 = 0
+3:7/0 = 0
+4:7/0 = 0
+5:7/0 = 0
+6:7/0 = 0
+7:7/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dxvb6"]
+sources/0 = SubResource("TileSetAtlasSource_wyytf")
+
+[node name="Board" type="Node2D" unique_id=1443457649]
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=977202641]
+script = SubResource("GDScript_u7t3a")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=272367452]
+position = Vector2(140, 0)
+tile_map_data = PackedByteArray("AAAUABsAAAACAAIAAAAUABwAAAACAAIAAAAUAB0AAAACAAIAAAATAB0AAAACAAIAAAATAB4AAAACAAIAAAASAB8AAAACAAIAAAARAB8AAAACAAIAAAARACAAAAACAAIAAAAQACAAAAACAAIAAAAPACAAAAACAAIAAAAPAB8AAAACAAIAAAAPAB4AAAACAAIAAAAPAB0AAAACAAIAAAAPABwAAAACAAIAAAAPABsAAAACAAIAAAALAAgAAAABAAQAAAALAAcAAAABAAQAAAAMAAcAAAABAAQAAAANAAcAAAABAAQAAAAOAAcAAAABAAQAAAAVAAcAAAABAAQAAAAFAAgAAAAGAAEAAAAEAAgAAAAGAAEAAAAFAAkAAAAGAAEAAAAGAAgAAAAGAAEAAAAHAAgAAAAGAAEAAAAHAAcAAAAGAAEAAAAIAAcAAAAGAAEAAAAJAAcAAAAGAAEAAAAKAAcAAAAGAAEAAAALAAYAAAAGAAEAAAAMAAYAAAAGAAEAAAANAAYAAAAGAAEAAAANAAUAAAAGAAEAAAAOAAUAAAAGAAEAAAAHAAYAAAAGAAEAAAAGAAYAAAAGAAEAAAAFAAYAAAAGAAEAAAAEAAYAAAAGAAEAAAAEAAcAAAAGAAEAAAAEAAkAAAAGAAEAAAAGAAkAAAAGAAEAAAAHAAkAAAAGAAEAAAAIAAoAAAAGAAEAAAAJAAsAAAAGAAEAAAAHAAoAAAAGAAEAAAADAAgAAAAGAAEAAAACAAcAAAAGAAEAAAACAAYAAAAGAAEAAAABAAUAAAAGAAEAAAABAAQAAAAGAAEAAAABAAMAAAAGAAEAAAAAAAMAAAAGAAEAAAAAAAIAAAAGAAEAAAD//wIAAAAGAAEAAAD+/wIAAAAGAAEAAAD9/wMAAAAGAAEAAAD8/wQAAAAGAAEAAAD8/wUAAAAGAAEAAAD7/wYAAAAGAAEAAAA=")
+tile_set = SubResource("TileSet_dxvb6")
