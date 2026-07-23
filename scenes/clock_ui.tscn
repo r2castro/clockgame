@@ -1,93 +1,7 @@
-[gd_scene format=4 uid="uid://wng7qbsp6br2"]
+[gd_scene format=3 uid="uid://wng7qbsp6br2"]
 
 [ext_resource type="Texture2D" uid="uid://bvvhntvduki1s" path="res://icon.svg" id="1_wyytf"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wyytf"]
-texture = ExtResource("1_wyytf")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-0:4/0 = 0
-1:4/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-6:4/0 = 0
-7:4/0 = 0
-0:5/0 = 0
-1:5/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
-0:6/0 = 0
-1:6/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
-0:7/0 = 0
-1:7/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_dxvb6"]
-sources/0 = SubResource("TileSetAtlasSource_wyytf")
-
-[sub_resource type="GDScript" id="GDScript_u7t3a"]
-script/source = "extends Camera2D
-
-const WALK_SPEED = 20
-
-func _process(delta):
-	if Input.is_action_pressed(\"ui_left\"):
-		position.x += -WALK_SPEED
-	elif Input.is_action_pressed(\"ui_right\"):
-		position.x +=  WALK_SPEED
-	elif Input.is_action_pressed(\"ui_up\"):
-		position.y +=  -WALK_SPEED
-	elif Input.is_action_pressed(\"ui_down\"):
-		position.y +=  WALK_SPEED
-		print('down')
-"
+[ext_resource type="PackedScene" uid="uid://c7cnnumv5r5av" path="res://scenes/board_snapper.tscn" id="2_u7t3a"]
 
 [node name="ClockUI" type="Control" unique_id=1511545794]
 layout_mode = 3
@@ -115,39 +29,28 @@ grow_vertical = 2
 split_offsets = PackedInt32Array(128)
 split_offset = 128
 
-[node name="Picker" type="VSplitContainer" parent="HSplitContainer" unique_id=1960570675]
+[node name="Toolbar" type="VSplitContainer" parent="HSplitContainer" unique_id=1960570675]
 layout_mode = 2
 
-[node name="TextureRect" type="TextureRect" parent="HSplitContainer/Picker" unique_id=1909536859]
-layout_mode = 2
-texture = ExtResource("1_wyytf")
-
-[node name="TextureRect2" type="TextureRect" parent="HSplitContainer/Picker" unique_id=1422556791]
+[node name="TextureRect" type="TextureRect" parent="HSplitContainer/Toolbar" unique_id=1909536859]
 layout_mode = 2
 texture = ExtResource("1_wyytf")
 
-[node name="TextureRect" type="TextureRect" parent="HSplitContainer" unique_id=1602855339]
+[node name="TextureRect2" type="TextureRect" parent="HSplitContainer/Toolbar" unique_id=1422556791]
 layout_mode = 2
 texture = ExtResource("1_wyytf")
 
-[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer/TextureRect" unique_id=1724797206]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer/TextureRect/PanelContainer" unique_id=1162852096]
+[node name="PanelContainer" type="PanelContainer" parent="HSplitContainer" unique_id=1724797206]
 layout_mode = 2
+size_flags_horizontal = 3
 
-[node name="SubViewport" type="SubViewport" parent="HSplitContainer/TextureRect/PanelContainer/SubViewportContainer" unique_id=86090833]
-size = Vector2i(518, 512)
+[node name="SubViewportContainer" type="SubViewportContainer" parent="HSplitContainer/PanelContainer" unique_id=1162852096]
+layout_mode = 2
+stretch = true
 
-[node name="TileMapLayer" type="TileMapLayer" parent="HSplitContainer/TextureRect/PanelContainer/SubViewportContainer/SubViewport" unique_id=2030129947]
-position = Vector2(140, 0)
-tile_map_data = PackedByteArray("AAAUABsAAAACAAIAAAAUABwAAAACAAIAAAAUAB0AAAACAAIAAAATAB0AAAACAAIAAAATAB4AAAACAAIAAAASAB8AAAACAAIAAAARAB8AAAACAAIAAAARACAAAAACAAIAAAAQACAAAAACAAIAAAAPACAAAAACAAIAAAAPAB8AAAACAAIAAAAPAB4AAAACAAIAAAAPAB0AAAACAAIAAAAPABwAAAACAAIAAAAPABsAAAACAAIAAAALAAgAAAABAAQAAAALAAcAAAABAAQAAAAMAAcAAAABAAQAAAANAAcAAAABAAQAAAAOAAcAAAABAAQAAAAVAAcAAAABAAQAAAAFAAgAAAAGAAEAAAAEAAgAAAAGAAEAAAAFAAkAAAAGAAEAAAAGAAgAAAAGAAEAAAAHAAgAAAAGAAEAAAAHAAcAAAAGAAEAAAAIAAcAAAAGAAEAAAAJAAcAAAAGAAEAAAAKAAcAAAAGAAEAAAALAAYAAAAGAAEAAAAMAAYAAAAGAAEAAAANAAYAAAAGAAEAAAANAAUAAAAGAAEAAAAOAAUAAAAGAAEAAAAHAAYAAAAGAAEAAAAGAAYAAAAGAAEAAAAFAAYAAAAGAAEAAAAEAAYAAAAGAAEAAAAEAAcAAAAGAAEAAAAEAAkAAAAGAAEAAAAGAAkAAAAGAAEAAAAHAAkAAAAGAAEAAAAIAAoAAAAGAAEAAAAJAAsAAAAGAAEAAAAHAAoAAAAGAAEAAAADAAgAAAAGAAEAAAACAAcAAAAGAAEAAAACAAYAAAAGAAEAAAABAAUAAAAGAAEAAAABAAQAAAAGAAEAAAABAAMAAAAGAAEAAAAAAAMAAAAGAAEAAAAAAAIAAAAGAAEAAAD//wIAAAAGAAEAAAD+/wIAAAAGAAEAAAD9/wMAAAAGAAEAAAD8/wQAAAAGAAEAAAD8/wUAAAAGAAEAAAD7/wYAAAAGAAEAAAA=")
-tile_set = SubResource("TileSet_dxvb6")
+[node name="SubViewport" type="SubViewport" parent="HSplitContainer/PanelContainer/SubViewportContainer" unique_id=86090833]
+handle_input_locally = false
+size = Vector2i(1012, 648)
+render_target_update_mode = 4
 
-[node name="Camera2D" type="Camera2D" parent="HSplitContainer/TextureRect/PanelContainer/SubViewportContainer/SubViewport" unique_id=224430842]
-script = SubResource("GDScript_u7t3a")
+[node name="Board" parent="HSplitContainer/PanelContainer/SubViewportContainer/SubViewport" unique_id=1443457649 instance=ExtResource("2_u7t3a")]

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://c7cnnumv5r5av"]
+
+[ext_resource type="Script" uid="uid://c5qfq2yqpxmy0" path="res://scripts/board_snapper.gd" id="1_8qj0s"]
+[ext_resource type="PackedScene" uid="uid://cptr0beopy6j0" path="res://scenes/gear.tscn" id="2_8qj0s"]
+
+[sub_resource type="GDScript" id="GDScript_u7t3a"]
+script/source = "extends Camera2D
+
+const WALK_SPEED = 20
+
+func _process(delta):
+	if Input.is_action_pressed(\"ui_left\"):
+		position.x += -WALK_SPEED
+	elif Input.is_action_pressed(\"ui_right\"):
+		position.x +=  WALK_SPEED
+	elif Input.is_action_pressed(\"ui_up\"):
+		position.y +=  -WALK_SPEED
+	elif Input.is_action_pressed(\"ui_down\"):
+		position.y +=  WALK_SPEED
+		print('down')
+"
+
+[node name="Board" type="Node2D" unique_id=1443457649]
+script = ExtResource("1_8qj0s")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=977202641]
+script = SubResource("GDScript_u7t3a")
+
+[node name="Source" parent="." unique_id=552713202 instance=ExtResource("2_8qj0s")]
+position = Vector2(162, -42)
+
+[node name="Gear" parent="." unique_id=2027207333 instance=ExtResource("2_8qj0s")]
+state = 1
