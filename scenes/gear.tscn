@@ -1,16 +1,16 @@
 [gd_scene format=3 uid="uid://cptr0beopy6j0"]
 
 [ext_resource type="Script" uid="uid://doqcsm44kmvl0" path="res://scripts/gear.gd" id="1_7j0fb"]
-[ext_resource type="Texture2D" uid="uid://bvvhntvduki1s" path="res://icon.svg" id="1_btfrt"]
+[ext_resource type="Texture2D" uid="uid://btoj18c38khfc" path="res://assets/gear_place_holder.png" id="2_7j0fb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_dxvb6"]
-radius = 65.0
+radius = 35.18
 
 [node name="Gear" type="Area2D" unique_id=552713202]
 script = ExtResource("1_7j0fb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1115463160]
-texture = ExtResource("1_btfrt")
+texture = ExtResource("2_7j0fb")
 metadata/_edit_lock_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1827459826]

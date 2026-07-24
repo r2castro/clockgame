@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5qfq2yqpxmy0" path="res://scripts/board_snapper.gd" id="1_8qj0s"]
 [ext_resource type="PackedScene" uid="uid://cptr0beopy6j0" path="res://scenes/gear.tscn" id="2_8qj0s"]
+[ext_resource type="Texture2D" uid="uid://bvvhntvduki1s" path="res://icon.svg" id="2_v0e0t"]
 
 [sub_resource type="GDScript" id="GDScript_u7t3a"]
 script/source = "extends Camera2D
@@ -31,3 +32,24 @@ position = Vector2(162, -42)
 
 [node name="Gear" parent="." unique_id=2027207333 instance=ExtResource("2_8qj0s")]
 state = 1
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=861025648]
+visible = false
+
+[node name="Parallax2D" type="Parallax2D" parent="ParallaxBackground" unique_id=1637009504]
+repeat_times = 11
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/Parallax2D" unique_id=1267727298]
+modulate = Color(0.18, 0.18, 0.18, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_v0e0t")
+stretch_mode = 1
+flip_v = true
+
+[node name="Cursor" type="Area2D" parent="." unique_id=569840514]

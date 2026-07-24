@@ -22,9 +22,11 @@ func _process(delta: float) -> void:
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		if gear.modulate == Color('green'):
-			print('click')
 			await gear.place()
 			gear = GearScene.instantiate()
 			gear.state = gear.states.PLACING
 			gear.set_position_cursor(get_local_mouse_position())
 			add_child(gear)
+	
+	if event.is_action_pressed('ui_accept'):
+		source.spin(true)
